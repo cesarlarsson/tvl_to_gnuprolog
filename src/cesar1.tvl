@@ -1,0 +1,9 @@
+root FuerzadeVenta {
+        group allOf {
+                Empresas,
+                Usuarios,
+                Productos ,
+                Clientes,
+                Solicitudes
+        }
+}

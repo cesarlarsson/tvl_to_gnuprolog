@@ -1,0 +1,70 @@
+
+root FuerzadeVenta {
+	group allOf {
+		Empresas,
+		Usuarios,
+		Productos ,
+		Clientes,
+		Solicitudes
+	}
+}
+
+Empresas{
+	group oneOf{
+		Personal {
+		      group allof {
+			  Pymes22  ,
+			  Pymes444522 ,
+			  }
+		   },
+		Pymes  ,
+		Mediana   
+}
+}
+
+Usuarios 
+{
+group [2..4]{
+	Administrador   ,
+	Vendedor  ,
+	Manager{
+		ifIn : root.Empresas ==Mediana ;
+		ifIn : root.Empresas ==Pyme ;
+},
+	Coordinador{
+		ifIn : root.Empresas ==Mediana ;
+		
+
+}
+}
+}
+
+
+Solicitudes{
+	group someOf{
+		solicitudProducto,
+		solicitudServicio
+}
+}
+
+Productos{
+group [1..3]{
+	productosimple,
+	servicio,
+	productocompuesto{
+	shared productocompuesto
+}
+}
+
+}
+Clientes{
+	group  someOf{
+		natural,
+		empresa{
+	
+	contacto in [1..n]
+
+}
+}
+
+}

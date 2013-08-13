@@ -1,0 +1,33 @@
+root Vehicle {
+ real price is sum(selectedchildren.price);
+ real weight is sum(selectedchildren.weight);
+ 	
+ group oneof {
+			Taxi {
+				real price is sum(selectedchildren.price);
+				real weight is sum(selectedchildren.weight);
+			},
+  
+  
+            Car {
+                real price is sum(selectedchildren.price);
+                real weight is sum(selectedchildren.weight);
+                group oneof {
+                    Sports;
+                    Family;
+                } 
+            },
+			
+            Bus {
+                real price is sum(selectedchildren.aaprice);
+                real weight is sum(selectedchildren.weight);
+                group oneof {
+                    Volkswagen;
+                    group oneof {
+                        Sports;
+                        Family;
+                    }
+                }
+            }
+ }
+}
